@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-	rename = require("gulp-rename"),
+	rename = require('gulp-rename'),
 	prettify = require('gulp-jsbeautifier');
 
 //Переложим HTML в папку pages/
@@ -17,7 +17,7 @@ gulp.task('appAssemblyCSS', function(){
 
 //Переложим JS в папку pages/merged/
 gulp.task('appAssemblyJS', function(){
-	return gulp.src('desktop.bundles//merged/_merged.js')
+	return gulp.src('desktop.bundles/merged/_merged.js')
 		.pipe(gulp.dest('pages/merged/'))
 });
 
