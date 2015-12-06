@@ -8,17 +8,12 @@
     "email": "yury.karalkou@gmail.com"
   },
   "dependencies": {
-    "bem-environ": "^1.4.0",
-    "bower": "^1.6.5",
-    "bower-npm-install": "^0.5.9"
+    "bower": "^1.6.5"
   },
   "devDependencies": {
     "bem": "^0.10.2",
-    "bem-tools-autoprefixer": "0.0.3",
-    "borschik": "^1.5.0",
     "borschik-tech-cleancss": "^2.1.0",
     "enb": "^1.1.0",
-    "enb-beautify": "0.0.3",
     "enb-bem-techs": "^2.1.0",
     "enb-bemxjst": "^4.0.2",
     "enb-borschik": "^2.1.0",
@@ -28,13 +23,12 @@
     "gulp-html-replace": "^1.4.5",
     "gulp-if": "^1.2.5",
     "gulp-jsbeautifier": "0.0.8",
-    "gulp-rename": "1.2.2",
-    "stylus": "0.52.4"
+    "gulp-rename": "1.2.2"
   },
   "scripts": {
     "start": "enb server",
     "postinstall": "npm run deps",
-    "deps": "bower-npm-install --non-interactive"
+    "deps": "bower i"
   },
   "engines": {
     "node": ">=0.10.0"
