@@ -1,43 +1,36 @@
-block('carousel-service')(
-	replace().once()(function(){
-		return {
-            block: 'carousel-service-wrapper',
-            content: [
-                {
-                    block: this.block,
-                    content: [
-                         {
-                            block: 'carousel-list',
-                            js: true,
-                            items: this.ctx.items
-                         },
-                         {
-                             elem: 'content'
-                         },
-                         {
-                             elem: 'counter',
-                             content: [
-                                {
-                                     elem: 'counter-current'
-                                },
-                                {
-                                    elem: 'counter-separator',
-                                    content: '/'
-                                },
-                                {
-                                    elem: 'counter-count',
-                                }
-                             ]
-                         },
-                         {
-                             elem: 'btn-prev'
-                         },
-                         {
-                             elem: 'btn-next'
-                         }
-                     ]
-                }
-            ]
-        };
-	})
-)
+block('carousel-service').content()(function(){
+	return {
+		elem: 'inner',
+		content: [
+			{
+				block: 'carousel-list',
+				js: true,
+				items: this.ctx.items || []
+			},
+			{
+				elem: 'content'
+			},
+			{
+				elem: 'counter',
+				content: [
+				   	{
+						elem: 'counter-current'
+				   	},
+				   	{
+						elem: 'counter-separator',
+						content: '/'
+				   	},
+					{
+						elem: 'counter-count',
+					}
+				]
+			},
+			{
+				elem: 'btn-prev'
+			},
+			{
+				elem: 'btn-next'
+			}
+		]
+	};
+});
