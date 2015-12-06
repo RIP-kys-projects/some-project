@@ -110,7 +110,6 @@ module.exports = function(config) {
 			[techs.htmlBeautify]
 		]);
 
-		nodeConfig.addTargets([/* '?.bemtree.js', */ '_?.css', '_?.js']);
-		isMergedNode || nodeConfig.addTargets(['?.html']);
+		nodeConfig.addTargets(isMergedNode ? ['_?.css', '_?.js'] : ['?.html']);
 	});
 };
