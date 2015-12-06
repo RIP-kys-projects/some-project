@@ -759,7 +759,7 @@
 														{
 															tag: 'span',
 															content: ' руб.'
-														},
+														}
 													]
 												},
 												url : '/',
@@ -781,8 +781,8 @@
 												],
 												sideContent: [
 													{
-														tag:'span',block: 'inexistant-block',
-														mix: { block: 'tiles-certificate' ,elem: 'animation-text', mods: {expiration: true} },
+														tag:'span', block: 'inexistant-block',
+														mix: { block: 'tiles-certificate', elem: 'animation-text', mods: {expiration: true} },
 														content: [
 															{
 																tag: 'span',
@@ -801,7 +801,7 @@
 								]
 							}
 						]
-					},
+					}
 				]
 			}
 		}
