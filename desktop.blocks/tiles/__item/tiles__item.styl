@@ -1,0 +1,34 @@
+.tiles__item
+  display: block
+  float: left
+  overflow: hidden
+  min-width: 230px
+  width: 40%
+  position: relative
+  opacity: 1
+  border-radius(5px)
+  font-size: $fs-base
+  color: $black
+  transform-origin: 50% 0
+  transform: scaleY(1)
+  transition: width .75s
+  &:hover
+    width: 50%
+    transition: width .5s
+    .tiles__animation
+      opacity: 1
+      transition: opacity ease-in .5s .3s
+    .tiles__title
+      color: #d10e00
+
+
+.tiles__item_visible
+  width: 50%
+  .tiles__animation
+    opacity: 1
+
+.tiles__item_hidden
+  &:hover
+    width: 40%
+    .tiles__animation
+      opacity: 0

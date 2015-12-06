@@ -1,0 +1,108 @@
+block('page').mod('sticky-push', true)(
+    content()(function(){
+        return [
+            {
+                tag: '',
+                content : this.ctx.scripts
+            },
+            {
+	            block: 'page-sticky-footer',
+	            content: [
+	                {
+	                    block: 'header',
+                    },
+	                {
+	                    tag: '',
+	                    content: this.ctx.content
+	                },
+	                {
+                        block: 'clearfix'
+                    },
+	                {
+	                    block: 'sticky-push'
+	                }
+	            ]
+	        },
+	        {
+	            block: 'footer'
+	        },
+	        {
+	            block: 'column-popup',
+	            mods: { 'align': 'right'},
+	            js: true,
+	            ico: 'ico-user',
+	            title: 'Личный кабинет',
+	            'column-popup-nav': [
+	                {
+	                    title: 'Персональные данные',
+	                    url: '/',
+	                    content: 'Подпись в персональныых данных текст текст текст'
+	                },
+	                {
+                        title: 'Компании',
+                        url: '/',
+                        content: 'Подпись в компании влоыао выа текст текст текст'
+                    },
+                    {
+                        title: 'Выйти',
+                        url: '/'
+                    }
+	            ]
+	        },
+			{
+				 block: 'whole-popup',
+				 js: true,
+				 mods: { 'cities-choice' : true}
+			}
+        ]
+    })
+);
+
+block('page').mod('sticky-push', 'none')(
+	content()(function(){
+		return [
+			{
+                tag: '',
+                content : this.ctx.scripts
+            },
+            {
+                block: 'header',
+            },
+			{
+                tag: '',
+                content: this.ctx.content
+            },
+			{
+				block: 'footer'
+			},
+			{
+                block: 'column-popup',
+                mods: { 'align': 'right'},
+                js: true,
+                ico: 'ico-user',
+                title: 'Яков Даниэлс',
+                'column-popup-nav': [
+                    {
+                        title: 'Персональные данные',
+                        url: '/',
+                        content: 'Подпись в персональныых данных текст текст текст'
+                    },
+                    {
+                        title: 'Компании',
+                        url: '/',
+                        content: 'Подпись в компании влоыао выа текст текст текст'
+                    },
+                    {
+                        title: 'Выйти',
+                        url: '/'
+                    }
+                ]
+            },
+			{
+				 block: 'whole-popup',
+				 js: true,
+				 mods: { 'cities-choice' : true}
+			}
+		]
+	})
+);

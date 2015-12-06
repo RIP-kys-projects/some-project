@@ -1,0 +1,9 @@
+block('form-cancel')(
+   	def()(function(){
+   		return applyCtx({
+   			block: 'form-cancel-wrapper',
+   			content: this.ctx
+   		})
+   	}),
+   	tag()('a')
+)

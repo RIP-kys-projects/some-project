@@ -1,0 +1,13 @@
+block('input')(
+	tag()('input'),
+	attrs()(function(){
+         return{
+             type: this.ctx.type ? this.ctx.type : 'text',
+             value: this.ctx.val,
+             name: this.ctx.name,
+             placeholder: this.ctx.placeholder,
+             maxlength: this.ctx.maxlength,
+             disabled: this.ctx.disabled
+         }
+     })
+)

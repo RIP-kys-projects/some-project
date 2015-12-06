@@ -1,0 +1,10 @@
+/.idea/
+node_modules/
+
+# bem and libs
+libs/
+/.bem/cache/
+/.enb/tmp/
+*.bundles*/*/*.*
+!*.bundles*/*/*.bemjson.js
+!*.bundles*/.bem/*

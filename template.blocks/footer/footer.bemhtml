@@ -1,0 +1,71 @@
+block('footer')(
+	tag()('footer'),
+	content()(function(){
+		return {
+            block: 'container',
+            content: [
+                {
+                    block: 'col-md-5',
+                    mix: { block: 'row'},
+                    content: 'Генеральная лицензия  от 16 января 2115 г.'
+                },
+                {
+                    block: 'col-md-7',
+                    mix: { block: 'row'},
+                    content: {
+                        block: 'footer-menu',
+                        'footer-menu': [
+                            {
+                                elem: 'item',
+                                url: '#',
+                                content: 'О чём-то там'
+                            },
+                            {
+                                elem: 'item',
+                                url: '#',
+                                content: 'Обратная связь'
+                            },
+                            {
+                                elem: 'item',
+                                url: '#',
+                                content: 'Всё для людей'
+                            },
+                        ]
+                    }
+                },
+                {
+                    block: 'col-md-9',
+                    mix: { block: 'row'},
+                    content:{
+                        block: 'footer',
+                        elem: 'copy',
+                        content: '© 2115, БезЗабот'
+                    }
+                },
+                {
+                    block: 'col-md-3',
+                    content: {
+                        block: 'footer-social-list',
+                        'footer-social-list': [
+                            {
+                                elem: 'item',
+                                elemMods: { type: 'tw' },
+                                url: '#'
+                            },
+                            {
+                                elem: 'item',
+                                elemMods: { type: 'vk' },
+                                url: '#'
+                            },
+                            {
+                                elem: 'item',
+                                elemMods: { type: 'fb' },
+                                url: '#'
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+	})
+)

@@ -1,0 +1,15 @@
+block('position')(
+	def()(function(){
+	    return applyCtx([
+	        {
+	            block: this.ctx.block,
+	            mods: this.ctx.mods,
+	            content: this.ctx.content
+            },
+            {
+                block: 'position',
+                elem: 'clearfix'
+            }
+	    ])
+	})
+)
