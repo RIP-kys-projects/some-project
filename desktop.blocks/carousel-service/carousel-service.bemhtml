@@ -1,10 +1,10 @@
 block('carousel-service')(
-	def()(function(){
-		return applyCtx({
+	replace().once()(function(){
+		return {
             block: 'carousel-service-wrapper',
             content: [
                 {
-                    block: 'carousel-service',
+                    block: this.block,
                     content: [
                          {
                             block: 'carousel-list',
@@ -12,39 +12,32 @@ block('carousel-service')(
                             items: this.ctx.items
                          },
                          {
-                             block: 'carousel-service',
                              elem: 'content'
                          },
                          {
-                             block: 'carousel-service',
                              elem: 'counter',
                              content: [
                                 {
-                                     block: 'carousel-service',
-                                     elem: 'counter-current',
+                                     elem: 'counter-current'
                                 },
                                 {
-                                    block: 'carousel-service',
                                     elem: 'counter-separator',
                                     content: '/'
                                 },
                                 {
-                                    block: 'carousel-service',
                                     elem: 'counter-count',
                                 }
                              ]
                          },
                          {
-                             block: 'carousel-service',
                              elem: 'btn-prev'
                          },
                          {
-                             block: 'carousel-service',
                              elem: 'btn-next'
                          }
                      ]
                 }
             ]
-        })
+        };
 	})
 )
