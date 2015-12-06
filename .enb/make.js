@@ -1,7 +1,6 @@
 var fs = require('fs'),
 	path = require('path'),
 	techs = {
-		htmlBeautify: require('enb-beautify/techs/enb-beautify-html'),
 		// essential
 		fileProvider: require('enb/techs/file-provider'),
 		fileMerge: require('enb/techs/file-merge'),
@@ -53,13 +52,13 @@ module.exports = function(config) {
 		nodeConfig.addTechs([
 			// essential
 			[enbBemTechs.levels, { levels: levels }],
-			[enbBemTechs.depsOld],
+			[enbBemTechs.deps],
 			[enbBemTechs.files],
 
 			// css
 			[techs.stylus, {
 				target: '?.css',
-				sourcemap: !isProd,
+				sourcemap: false,
 				autoprefixer: {
 					browsers: ['last 20 versions', 'IE > 8', 'Opera > 11', 'Firefox >= 5', 'Chrome > 10']
 				}
@@ -102,9 +101,6 @@ module.exports = function(config) {
 			// borschik
 			[techs.borschik, { sourceTarget: '?.js', destTarget: '_?.js', minify: isProd }],
 			[techs.borschik, { sourceTarget: '?.css', destTarget: '_?.css', tech: 'cleancss', minify: isProd }],
-
-			//Beautify
-			[techs.htmlBeautify]
 		]);
 
 		nodeConfig.addTargets(isMergedNode ? ['_?.css', '_?.js'] : ['?.html']);
