@@ -1,3 +1,0 @@
-block('tiles-certificate').elem('animation-text')(
-    tag()('div')
-)
