@@ -7,7 +7,9 @@
 			elem : 'meta',
 			attrs : { name : 'viewport', content: 'width=1260' },
 		},
-		{ elem: 'css', url: '../merged/_merged.css' },
+		{ elem: 'css', url: '../merged/_merged.css' }
+	],
+	scripts: [
 		{
 			elem : 'conditional-comment',
 			condition : '< IE 9',
