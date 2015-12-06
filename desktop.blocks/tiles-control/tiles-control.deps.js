@@ -1,7 +1,7 @@
 ([
     {
         mustDeps: [
-            { block: 'i-bem' },
+            { block: 'i-bem', elem: 'dom' },
             { block: 'certificate-change' }
         ],
         shouldDeps: { elem: 'jquery' }

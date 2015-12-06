@@ -1,6 +1,6 @@
 ([
     {
-        mustDeps: 'i-bem',
+        mustDeps: { block: 'i-bem', elem: 'dom' },
         shouldDeps: { elem: 'jquery' }
     },
     {

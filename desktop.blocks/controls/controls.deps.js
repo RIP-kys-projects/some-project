@@ -1,14 +1,21 @@
 ([
 	{
-		mustDeps: 'i-bem',
-		shouldDeps: { elem: 'jquery' }
+		mustDeps: [
+			{ block: 'i-bem', elem: 'dom' },
+			{ block: 'tabs'},
+			{ block: 'form-select'}
+		],
+		shouldDeps: [
+			{ elem: 'jquery' },
+			{ block: 'events', elem: 'message' }
+		]
 	},
 	{
 		tech: 'js',
-		mustDeps   : [
+		mustDeps: [
 			{
 				block: 'abstract-section-list',
-				mods : { wrapper: 'none'},
+				mods: { wrapper: 'none'},
 				tech: 'bemhtml'
 			},
 			{
@@ -16,15 +23,6 @@
 				elem: 'item',
 				tech: 'bemhtml'
 			}
-		]
-	},
-	{
-		mustDeps: [
-			{ block: 'tabs'},
-			{ block: 'form-select'}
-		],
-		shouldDeps :[
-			{ block: 'events', elem: 'message' }
 		]
 	}
 ])
