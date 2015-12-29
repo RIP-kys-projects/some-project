@@ -7,7 +7,9 @@
 			elem : 'meta',
 			attrs : { name : 'viewport', content: 'width=1260' },
 		},
-		{ elem: 'css', url: '../merged/_merged.css' },
+		{ elem: 'css', url: '../merged/_merged.css' }
+	],
+	scripts: [
 		{
 			elem : 'conditional-comment',
 			condition : '< IE 9',
@@ -757,7 +759,7 @@
 														{
 															tag: 'span',
 															content: ' руб.'
-														},
+														}
 													]
 												},
 												url : '/',
@@ -779,8 +781,8 @@
 												],
 												sideContent: [
 													{
-														tag:'span',block: 'inexistant-block',
-														mix: { block: 'tiles-certificate' ,elem: 'animation-text', mods: {expiration: true} },
+														tag:'span', block: 'inexistant-block',
+														mix: { block: 'tiles-certificate', elem: 'animation-text', mods: {expiration: true} },
 														content: [
 															{
 																tag: 'span',
@@ -799,7 +801,7 @@
 								]
 							}
 						]
-					},
+					}
 				]
 			}
 		}

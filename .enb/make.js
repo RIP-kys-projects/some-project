@@ -1,7 +1,6 @@
 var fs = require('fs'),
 	path = require('path'),
 	techs = {
-		htmlBeautify: require('enb-beautify/techs/enb-beautify-html'),
 		// essential
 		fileProvider: require('enb/techs/file-provider'),
 		fileMerge: require('enb/techs/file-merge'),
@@ -10,19 +9,17 @@ var fs = require('fs'),
 		borschik: require('enb-borschik/techs/borschik'),
 
 		// css
-		cssStylus: require('enb-stylus/techs/css-stylus'),
-		cssAutoprefixer: require('enb-autoprefixer/techs/css-autoprefixer'),
+		stylus: require('enb-stylus/techs/stylus'),
 
 		// js
-		browserJs: require('enb-diverse-js/techs/browser-js'),
-		prependYm: require('enb-modules/techs/prepend-modules'),
+		browserJs: require('enb-js/techs/browser-js'),
 
 		// bemtree
-		// bemtree: require('enb-bemxjst/techs/bemtree-old'),
+		// bemtree: require('enb-bemxjst/techs/bemtree'),
 
 		// bemhtml
-		bemhtml: require('enb-bemxjst/techs/bemhtml-old'),
-		htmlFromBemjson: require('enb-bemxjst/techs/html-from-bemjson')
+		bemhtml: require('enb-bemxjst/techs/bemhtml'),
+		bemjsonToHtml: require('enb-bemxjst/techs/bemjson-to-html')
 
 	},
 	enbBemTechs = require('enb-bem-techs'),
@@ -55,23 +52,23 @@ module.exports = function(config) {
 		nodeConfig.addTechs([
 			// essential
 			[enbBemTechs.levels, { levels: levels }],
-			[enbBemTechs.depsOld],
+			[enbBemTechs.deps],
 			[enbBemTechs.files],
 
 			// css
-			[techs.cssStylus, { target: '?.noprefix.css' }],
-			[techs.cssAutoprefixer, {
-				sourceTarget: '?.noprefix.css',
-				destTarget: '?.css',
-				browserSupport: ['last 20 versions', 'IE > 8', 'Opera > 11', 'Firefox >= 5', 'Chrome > 10']
+			[techs.stylus, {
+				target: '?.css',
+				sourcemap: false,
+				autoprefixer: {
+					browsers: ['last 20 versions', 'IE > 8', 'Opera > 11', 'Firefox >= 5', 'Chrome > 10']
+				}
 			}],
-
 			// bemtree
-			// [techs.bemtree, { devMode: process.env.BEMTREE_ENV === 'development' }],
+			// [techs.bemtree, { sourceSuffixes: ['bemtree.js', 'bemtree'] }],
 
 			// bemhtml
-			[techs.bemhtml, { devMode: process.env.BEMHTML_ENV === 'development' }],
-			[techs.htmlFromBemjson],
+			[techs.bemhtml, { sourceSuffixes: ['bemhtml.js', 'bemhtml'] }],
+			[techs.bemjsonToHtml],
 
 			// client bemhtml
 			[enbBemTechs.depsByTechToBemdecl, {
@@ -91,26 +88,21 @@ module.exports = function(config) {
 			[techs.bemhtml, {
 				target: '?.browser.bemhtml.js',
 				filesTarget: '?.bemhtml.files',
-				devMode: process.env.BEMHTML_ENV === 'development'
+				sourceSuffixes: ['bemhtml.js', 'bemhtml']
 			}],
 
 			// js
-			[techs.browserJs],
+			[techs.browserJs, { includeYM: true }],
 			[techs.fileMerge, {
-				target: '?.pre.js',
-				sources: ['?.browser.bemhtml.js', '?.browser.js']
+				target: '?.js',
+				sources: ['?.browser.js', '?.browser.bemhtml.js']
 			}],
-			[techs.prependYm, { source: '?.pre.js' }],
 
 			// borschik
-			[techs.borschik, { sourceTarget: '?.js', destTarget: '_?.js', freeze: true, minify: isProd }],
-			[techs.borschik, { sourceTarget: '?.css', destTarget: '_?.css', tech: 'cleancss', freeze: true, minify: isProd }],
-
-			//Beautify
-			[techs.htmlBeautify]
+			[techs.borschik, { sourceTarget: '?.js', destTarget: '_?.js', minify: isProd }],
+			[techs.borschik, { sourceTarget: '?.css', destTarget: '_?.css', tech: 'cleancss', minify: isProd }],
 		]);
 
-		nodeConfig.addTargets([/* '?.bemtree.js', */ '_?.css', '_?.js']);
-		isMergedNode || nodeConfig.addTargets(['?.html']);
+		nodeConfig.addTargets(isMergedNode ? ['_?.css', '_?.js'] : ['?.html']);
 	});
 };

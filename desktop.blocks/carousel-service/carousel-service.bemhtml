@@ -1,50 +1,36 @@
-block('carousel-service')(
-	def()(function(){
-		return applyCtx({
-            block: 'carousel-service-wrapper',
-            content: [
-                {
-                    block: 'carousel-service',
-                    content: [
-                         {
-                            block: 'carousel-list',
-                            js: true,
-                            items: this.ctx.items
-                         },
-                         {
-                             block: 'carousel-service',
-                             elem: 'content'
-                         },
-                         {
-                             block: 'carousel-service',
-                             elem: 'counter',
-                             content: [
-                                {
-                                     block: 'carousel-service',
-                                     elem: 'counter-current',
-                                },
-                                {
-                                    block: 'carousel-service',
-                                    elem: 'counter-separator',
-                                    content: '/'
-                                },
-                                {
-                                    block: 'carousel-service',
-                                    elem: 'counter-count',
-                                }
-                             ]
-                         },
-                         {
-                             block: 'carousel-service',
-                             elem: 'btn-prev'
-                         },
-                         {
-                             block: 'carousel-service',
-                             elem: 'btn-next'
-                         }
-                     ]
-                }
-            ]
-        })
-	})
-)
+block('carousel-service').content()(function(){
+	return {
+		elem: 'inner',
+		content: [
+			{
+				block: 'carousel-list',
+				js: true,
+				items: this.ctx.items || []
+			},
+			{
+				elem: 'content'
+			},
+			{
+				elem: 'counter',
+				content: [
+				   	{
+						elem: 'counter-current'
+				   	},
+				   	{
+						elem: 'counter-separator',
+						content: '/'
+				   	},
+					{
+						elem: 'counter-count',
+					}
+				]
+			},
+			{
+				elem: 'btn-prev'
+			},
+			{
+				elem: 'btn-next'
+			}
+		]
+	};
+});

@@ -1,7 +1,7 @@
 block('header')(
 	tag()('header'),
-	def()(function(){
-        return applyCtx([
+	replace().once()(function(){
+        return [
             {
                 block: 'header',
                 content: [
@@ -186,6 +186,6 @@ block('header')(
             {
                 block: 'header-push'
             }
-        ])
+        ];
     })
 )

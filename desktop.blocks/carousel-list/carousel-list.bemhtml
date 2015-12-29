@@ -3,9 +3,7 @@ block('carousel-list')(
 	content()(function(){
 
 		return this.ctx.items.map(function(item){
-			var bemJSON;
-
-			bemJSON = {
+			return {
 				elem: 'item',
 				tag: 'li',
 				attrs: {
@@ -41,8 +39,6 @@ block('carousel-list')(
 					}
 				]
 			};
-
-			return bemJSON;
-		})
+		});
 	})
 )
